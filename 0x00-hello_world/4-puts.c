@@ -1,7 +1,7 @@
 /**
- * 4-puts.c - Prints a message to the terminal.
- *
- * Return: returns 0.
+ * main - Prints a message to the terminal.
+ * main take no input and prints the mesage to std output.
+ * Return: 0.
  */
 #include <stdio.h>
 
