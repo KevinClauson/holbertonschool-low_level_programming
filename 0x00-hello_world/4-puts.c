@@ -1,10 +1,7 @@
 /**
  * 4-puts.c - Prints a message to the terminal.
- * @parameterx: Description of parameter x
  *
- * Description: Longer description of the function)?
- * section header: Section description)*
- * Return: Description of the returned value
+ * Return: returns 0.
  */
 #include <stdio.h>
 
