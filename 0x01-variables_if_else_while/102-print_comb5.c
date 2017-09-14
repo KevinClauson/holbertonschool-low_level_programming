@@ -8,37 +8,30 @@
 
 int main(void)
 {
-	int i, j, k, m;
+	int i, j, first, second, third, fourth;
 
 	i = 0;
 	j = 0;
-	k = 0;
-	m = 0;
 
-	while (i < 10)
+	while (i < 99)
 	{
-		j = 0;
-		while (j < 10)
+		j = i + 1;
+		while (j <= 99)
 		{
-			k = 0;
-			while (k < 10)
+			first = i / 10;
+			second = i % 10;
+			third = j / 10;
+			fourth = j % 10;
+			putchar('0' + first);
+			putchar('0' + second);
+			putchar(' ');
+			putchar('0' + third);
+			putchar('0' + fourth);
+
+			if (i < 98)
 			{
-				m = j + 1;
-				while (m < 10)
-				{
-					putchar('0' + i);
-					putchar('0' + j);
-					putchar(' ');
-					putchar('0' + k);
-					putchar('0' + m);
-					if (i < 9 || j < 9 || k < 9)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-					++m;
-				}
-				k++;
+				putchar(',');
+				putchar(' ');
 			}
 			++j;
 		}
