@@ -8,21 +8,32 @@
 
 int main(void)
 {
-	int i;
+	int i, j, first, second, third, fourth;
 
 	i = 0;
+	j = 0;
 
-	while (i < 10000)
+	while (i < 99)
 	{
-		putchar('0' + (num / 1000));
-		putchar('0' + ((num % 1000) / 100));
-		putchar(' ');
-		putchar('0' + ((num % 1000) / 10 % 10));
-		putchar('0' + ((num % 1000) % 10));
-		if (i < 9899)
+		j = i + 1;
+		while (j <= 99)
 		{
-			putchar(',');
+			first = i / 10;
+			second = i % 10;
+			third = j / 10;
+			fourth = j % 10;
+			putchar('0' + first);
+			putchar('0' + second);
 			putchar(' ');
+			putchar('0' + third);
+			putchar('0' + fourth);
+
+			if (i < 98)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			++j;
 		}
 		++i;
 	}
