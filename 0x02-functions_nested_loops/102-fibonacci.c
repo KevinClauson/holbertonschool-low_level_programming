@@ -17,9 +17,9 @@ int main(void)
 	{
 		temp = num1 + num2;
 		if (i < 49)
-			printf(" %lu,", temp);
+			printf("%lu, ", temp);
 		else
-			printf(" %lu", temp);
+			printf("%lu", temp);
 
 		num1 = num2;
 		num2 = temp;
