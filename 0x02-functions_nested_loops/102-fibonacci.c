@@ -1,10 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
+/**
+ * main - print first 50 fibbonacci nums starting with 1, 2
+ * Return: 0.
+*/
 
 int main(void)
 {
 	int i;
-	long num1, num2, temp;
+	unsigned long num1, num2, temp;
 
 	num1 = 0;
 	num2 = 1;
@@ -13,9 +17,9 @@ int main(void)
 	{
 		temp = (long) num1 + num2;
 		if (i < 49)
-			printf(" %ld,", temp);
+			printf(" %lu,", temp);
 		else
-			printf(" %ld", temp);
+			printf(" %lu", temp);
 
 		num1 = num2;
 		num2 = temp;
