@@ -15,7 +15,7 @@ int main(void)
 
 	for (i = 0; i < 50; ++i)
 	{
-		temp = (long) num1 + num2;
+		temp = num1 + num2;
 		if (i < 49)
 			printf(" %lu,", temp);
 		else
