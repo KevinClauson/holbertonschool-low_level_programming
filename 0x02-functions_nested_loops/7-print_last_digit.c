@@ -5,7 +5,7 @@
  * @n: is the number that we will take and return its last digit.
  *
  * Return: an int that is the last digit.
-*/
+ */
 
 int print_last_digit(int n)
 {
@@ -16,6 +16,6 @@ int print_last_digit(int n)
 	else
 		r = ((-1 * n) % 10);
 
-	_putchar(r + '0');
+	_putchar('0' + r);
 	return (r);
 }
