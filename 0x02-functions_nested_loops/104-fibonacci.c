@@ -40,7 +40,7 @@ int main(void)
 			t1 += rem;
 			t2 %= 10000000000;
 			if (i < 97)
-				printf("%lu%lu, ", t1, t2);
+				printf("%lu%010lu, ", t1, t2);
 			fp_n1 = fp_n2;
 			sp_n1 = sp_n2;
 			fp_n2 = t1;
