@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	char str[] = "holberton";
+	char str[] = "Holberton";
 	int i;
 
 	i = 0;
