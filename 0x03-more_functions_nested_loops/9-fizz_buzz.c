@@ -11,18 +11,19 @@ void main(void)
 	for (i = 1; i < 101; ++i)
 	{
 		if (i % 15 == 0)
-			printf("FizzBuzz ");
+			printf("FizzBuzz");
 		else if (i % 3 == 0)
-			printf("Fizz ");
+			printf("Fizz");
 		else if (i % 5 == 0)
-			printf("Buzz ");
-		else if (i < 100)
-			printf("%d ", i);
+			printf("Buzz");
 		else
 			printf("%d", i);
+
+		if (i < 100)
+			printf(" ");
 
 	}
 	printf("\n");
 
-	return);
+	return (0);
 }
