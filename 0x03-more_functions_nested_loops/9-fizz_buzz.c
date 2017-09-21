@@ -2,9 +2,9 @@
 #include <stdlib.h>
 /**
  * main - fizzbuzz print ot he console 1-100.
- * Return: 0.
+ * Return: void.
 */
-int main(void)
+void main(void)
 {
 	int i;
 
@@ -24,5 +24,5 @@ int main(void)
 	}
 	printf("\n");
 
-	return (0);
+	return);
 }
