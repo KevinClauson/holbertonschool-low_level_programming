@@ -7,9 +7,9 @@
 void print_number(int n)
 {
 	int  temp, temp2, cnt, div, result, i;
+
 	cnt = 0;
 	div = 1;
-
 	if (n < 0)
 	{
 		_putchar('-');
@@ -22,18 +22,18 @@ void print_number(int n)
 	else
 	{
 		temp = n;
-		while(temp)
+		while (temp)
 		{
 			temp /= 10;
 			++cnt;
 		}
 		temp2 = cnt;
-		while(temp2 > 1)
+		while (temp2 > 1)
 		{
 			div *= 10;
 			--temp2;
 		}
-		for(i = 0; i < cnt; ++i)
+		for (i = 0; i < cnt; ++i)
 		{
 			result = n / div;
 			_putchar(result + '0');
