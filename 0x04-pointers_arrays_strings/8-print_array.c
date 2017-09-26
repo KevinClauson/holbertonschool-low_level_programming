@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * print_array - print out array with commas..
+ * print_array - print out array with commas.
  * @a: is the array of ints;
  * @n: is the number of elements in array.
  * Return: void.
