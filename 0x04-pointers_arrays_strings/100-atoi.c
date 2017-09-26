@@ -24,6 +24,7 @@ int _atoi(char *s)
 		{
 			if (is_num == 0)
 			{
+				is_num = 1;
 				num += s[i] - '0';
 				if (one < -1)
 					num *= one;
