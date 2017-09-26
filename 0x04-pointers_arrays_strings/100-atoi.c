@@ -25,6 +25,8 @@ int _atoi(char *s)
 			num += s[i] - '0';
 		}
 	}
+	if (is_num == 0)
+		return (0);
 	num *= one;
 	return (num);
 }
