@@ -13,20 +13,32 @@ int _atoi(char *s)
 	for (i = 0; s[i] != '\0'; ++i)
 	{
 		if ((s[i] < '0' || s[i] > '9') && is_num == 1)
+		{
 			break;
+		}
 		if (s[i] == '-' && is_num == 0)
 		{
 			one *= -1;
 		}
 		if (s[i] >= '0' && s[i] <= '9')
 		{
-			is_num = 1;
-			num *= 10;
-			num += s[i] - '0';
+			if (is_num == 0)
+			{
+				num += s[i] - '0';
+				if (one < -1)
+					num *= one;
+			}
+			else
+			{
+				num *= 10;
+				if (num < 0)
+					num -= s[i] - '0';
+				else
+					num += s[i] - '0';
+			}
 		}
 	}
 	if (is_num == 0)
 		return (0);
-	num *= one;
 	return (num);
 }
