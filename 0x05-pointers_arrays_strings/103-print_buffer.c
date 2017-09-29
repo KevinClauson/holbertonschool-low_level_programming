@@ -55,7 +55,7 @@ void print_buffer(char *b, int size)
 		{
 			if (j == 0)
 			{
-				printf("%07x: ", i);
+				printf("%08x: ", i);
 				print_bits(b, i, size);
 			}
 			if (_printable(b[i]))
