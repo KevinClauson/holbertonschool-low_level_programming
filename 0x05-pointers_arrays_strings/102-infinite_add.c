@@ -1,5 +1,5 @@
-#include "holberton.h"
 #include <stdio.h>
+#include "holberton.h"
 
 int _strlen(char *str)
 {
@@ -57,15 +57,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	carry = 0;
 	for (i = 0; i < len_n1; ++i)
 	{
-		temp1 = (n1_w[i] - '0') + (n1_w[i] - '0') + carry;
-
+		temp1 = (n1_w[i] - '0') + (n2_w[i] - '0') + carry;
 		if (temp1 > 9)
 		{
 			is_carry = 1;
 			temp1 %= 10;
 			carry = 1;
-			if(i == len_n1 - 1)
-				len_n1+=1;
 		}
 		else
 		{
@@ -73,7 +70,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			carry = 0;
 		}
 		r[i] = temp1 + '0';
+		if (i == len_n1 - 1 && is_carry == 1)
+		{
+			++i;
+			r[i] = '1';
+		}
 	}
-	rev_arr(r, len_n1);
+	if (is_carry == 1)
+		rev_arr(r, len_n2+1);
+	else
+		rev_arr(r, len_n2);
 	return (r);
 }
