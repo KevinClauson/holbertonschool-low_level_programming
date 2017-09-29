@@ -1,15 +1,25 @@
 #include <stdio.h>
 #include "holberton.h"
-
+/**
+ * _strlen - get length of string
+ * @str: string.
+ * Return: length.
+ */
 int _strlen(char *str)
 {
 	int i;
 
-	for(i = 0; str[i] != '\0'; ++i)
+	for (i = 0; str[i] != '\0'; ++i)
 		;
 	return (i);
 }
-
+/**
+ * k_strncpy - copy string.
+ * @dest: the array to be copied to.
+ * @src: the string to be copied.
+ * @n: length of string.
+ * Return: nothing.
+ */
 void k_strncpy(char *dest, char *src, int n)
 {
 	int i;
@@ -19,7 +29,12 @@ void k_strncpy(char *dest, char *src, int n)
 	for ( ; i < n; ++i)
 		dest[i] = '\0';
 }
-
+/**
+ * rev_arr - reverses a string.
+ * @a: string to be rev.
+ * @n: length of string.
+ * Return: nothing.
+ */
 void rev_arr(char *a, int n)
 {
 	int i, j;
@@ -32,7 +47,14 @@ void rev_arr(char *a, int n)
 		a[j] = temp;
 	}
 }
-
+/**
+ * infinite_add - add to long strings of numbers..
+ * @n1: string to add.
+ * @n2: string to add.
+ * @r: buffer to create output string.
+ * @size_r: size of buffer.
+ * Return: string that is the sum of other two..
+ */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int i, len_n1, len_n2, temp1, carry, is_carry;
@@ -65,15 +87,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		}
 		r[i] = temp1 + '0';
 		if (i == len_n1 - 1 && is_carry == 1)
-		{
-			++i;
-			r[i] = '1';
-		}
+			r[++i] = '1';
 	}
 	if (i >= size_r)
 		return (0);
 	if (is_carry == 1)
-		rev_arr(r, len_n2+1);
+		rev_arr(r, len_n2 + 1);
 	else
 		rev_arr(r, len_n2);
 	return (r);
