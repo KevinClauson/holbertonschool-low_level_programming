@@ -12,7 +12,7 @@ int _printable(char ch)
 
 	char *arr = "\1\2\3\4\5\6\7\r\t\n\0";
 
-	for(i = 0; i < 11; i++)
+	for (i = 0; i < 11; i++)
 	{
 		if (ch == arr[i])
 			return (0);
@@ -29,11 +29,12 @@ int _printable(char ch)
 void print_bits(char *b, int i, int sz)
 {
 	int j, t;
+
 	t = i;
-	for (j = 0; j < 9; j+=2, t+=2)
+	for (j = 0; j < 9; j += 2, t += 2)
 	{
 		if (t < sz)
-			printf("%02x%02x ", b[i+j], b[i+j+1]);
+			printf("%02x%02x ", b[i + j], b[i + j + 1]);
 		else
 			printf("     ");
 	}
@@ -47,16 +48,17 @@ void print_bits(char *b, int i, int sz)
 void print_buffer(char *b, int size)
 {
 	int i, j;
+
 	for (i = 0; i < size; )
 	{
 		for (j = 0; j < 10 && i < size; ++j)
 		{
-			if(j == 0)
+			if (j == 0)
 			{
 				printf("%07x: ", i);
 				print_bits(b, i, size);
 			}
-			if(_printable(b[i]))
+			if (_printable(b[i]))
 				putchar(b[i]);
 			else
 				putchar('.');
