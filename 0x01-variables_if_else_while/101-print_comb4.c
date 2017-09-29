@@ -8,29 +8,38 @@
 
 int main(void)
 {
-	int i, j, k;
+	int i, j, k, m;
 
 	i = 0;
 	j = 0;
 	k = 0;
+	m = 0;
 
-	while (i < 8)
+	while (i < 10)
 	{
-		j = i + 1;
-		while (j < 9)
+		j = 0;
+		while (j < 10)
 		{
-			k = j + 1;
+			k = 0;
 
 			while (k < 10)
 			{
-				putchar('0' + i);
-				putchar('0' + j);
-				putchar('0' + k);
+				m = j + 1;
 
-				if (i < 7 || j < 8 || k < 9)
+				while (m < 10)
 				{
-					putchar(',');
+					putchar('0' + i);
+					putchar('0' + j);
 					putchar(' ');
+					putchar('0' + k);
+					putchar('0' + m);
+
+					if (i < 9 || j < 9 || k < 9)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+					++m;
 				}
 				k++;
 			}
