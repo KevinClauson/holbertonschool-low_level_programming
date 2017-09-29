@@ -31,13 +31,12 @@ void print_bits(char *b, int i, int sz)
 	int j, t;
 
 	t = i;
-	for (j = 0; j < 9; j += 2, t += 2)
+	for (j = 0; j < 9 && t < sz; j += 2, t += 2)
 	{
-		if (t < sz)
-			printf("%02x%02x ", b[i + j], b[i + j + 1]);
-		else
-			printf("     ");
+		printf("%02x%02x ", b[i + j], b[i + j + 1]);
 	}
+	for ( ; j < 9; j += 2)
+		printf("     ");
 }
 /**
  * print_buffer - print otu a buffer regarless of new lines or nulls
