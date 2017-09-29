@@ -37,7 +37,7 @@ void print_bits(char *b, int i, int sz)
 		for (j = 0; j < 4 && t < sz; j += 2, m++, t++)
 		{
 			printf("%02x", b[i + m]);
-			n+=2;
+			n += 2;
 		}
 		printf(" ");
 		n++;
