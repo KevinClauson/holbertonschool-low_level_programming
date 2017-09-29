@@ -10,7 +10,7 @@ int _strlen(char *str)
 	return (i);
 }
 
-char *_strncpy(char *dest, char *src, int n)
+void k_strncpy(char *dest, char *src, int n)
 {
 	int i;
 
@@ -18,12 +18,11 @@ char *_strncpy(char *dest, char *src, int n)
 		dest[i] = src[i];
 	for ( ; i < n; ++i)
 		dest[i] = '\0';
-	return (dest);
 }
 
 void rev_arr(char *a, int n)
 {
-	int i, j, len_n1;
+	int i, j;
 	char temp;
 
 	for (i = 0, j = n - 1; i < j; ++i, --j)
@@ -34,22 +33,17 @@ void rev_arr(char *a, int n)
 	}
 }
 
-
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, len_n1, len_n2, len_r, temp1, temp2, carry, is_carry;
-	char *rev_n1;
-	char n1_w[100];
-	char n2_w[100];
-	char *ptr_n1;
-	char *ptr_n2;
+	int i, len_n1, len_n2, temp1, carry, is_carry;
+	char n1_w[100], n2_w[100];
 
 	len_n1 = _strlen(n1);
 	len_n2 = _strlen(n2);
 	if (len_n1 > size_r || len_n2 > size_r)
 		return (0);
-	ptr_n1 = _strncpy(n1_w, n1, len_n1);
-	ptr_n2 = _strncpy(n2_w, n2, len_n2);
+	k_strncpy(n1_w, n1, len_n1);
+	k_strncpy(n2_w, n2, len_n2);
 	rev_arr(n1_w, len_n1);
 	rev_arr(n2_w, len_n2);
 
@@ -76,6 +70,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			r[i] = '1';
 		}
 	}
+	if (i >= size_r)
+		return (0);
 	if (is_carry == 1)
 		rev_arr(r, len_n2+1);
 	else
