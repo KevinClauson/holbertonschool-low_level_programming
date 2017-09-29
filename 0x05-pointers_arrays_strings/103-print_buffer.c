@@ -28,15 +28,22 @@ int _printable(char ch)
  */
 void print_bits(char *b, int i, int sz)
 {
-	int j, t;
+	int j, t, k, m, n;
 
+	m = n = 0;
 	t = i;
-	for (j = 0; j < 9 && t < sz; j += 2, t += 2)
+	for (k = 0; k < 5 && t < sz; ++k)
 	{
-		printf("%02x%02x ", b[i + j], b[i + j + 1]);
+		for (j = 0; j < 4 && t < sz; j += 2, m++, t++)
+		{
+			printf("%02x", b[i + m]);
+			n+=2;
+		}
+		printf(" ");
+		n++;
 	}
-	for ( ; j < 9; j += 2)
-		printf("     ");
+	for ( ; n < 25; n++)
+		printf(" ");
 }
 /**
  * print_buffer - print otu a buffer regarless of new lines or nulls
