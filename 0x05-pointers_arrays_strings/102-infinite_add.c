@@ -46,6 +46,8 @@ void rev_arr(char *a, int n)
 		a[i] = a[j];
 		a[j] = temp;
 	}
+	for (i = n; i < 100; ++i)
+		a[i] = '0';
 }
 /**
  * infinite_add - add to long strings of numbers..
