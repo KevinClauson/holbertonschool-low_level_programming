@@ -77,12 +77,14 @@ int test_size(char *n1, int l1, char *n2, int l2, char *r, int s)
 		r[k] = '1';
 		return (1);
 	}
-	else if(k > 0)
+	else if (k > 0)
 	{
 		k += 1;
 		move_str(r, k, s);
 		return (1);
 	}
+	else if (k > -2 && carry == 0)
+		return (1);
 	else
 		return (0);
 }
