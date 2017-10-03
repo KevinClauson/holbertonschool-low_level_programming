@@ -7,22 +7,20 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i, comp;
+	unsigned int i;
 
-	comp = 0;
 	while (*s != '\0')
 	{
 		for (i = 0; accept[i] != '\0'; ++i)
 		{
 			if (*s == accept[i])
 			{
-				comp = 1;
-				break;
+				return (s);
 			}
 		}
-		if (comp == 1)
-			break;
 		++s;
 	}
-	return (s);
+	if (*accept == '\0')
+		return (s);
+	return (0);
 }
