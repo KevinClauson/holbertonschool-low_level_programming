@@ -9,9 +9,9 @@ int test_base(int a, int b)
 {
 	if (b * b == a)
 		return (b);
-	if (b * b < a)
+	if (b * b > a)
 		return (-1);
-	return (test_base(a, b - 1));
+	return (test_base(a, b + 1));
 }
 
 /**
@@ -25,5 +25,5 @@ int _sqrt_recursion(int n)
 		return (-1);
 	if (n == 1)
 		return (1);
-	return (test_base(n, n / 2));
+	return (test_base(n, 2));
 }
