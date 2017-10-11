@@ -54,6 +54,13 @@ char **strtow(char *str)
 				++cnt;
 		}
 		arr[i] = (char *) malloc(cnt * sizeof(char) + 1);
+		if (arr[i] == NULL)
+		{
+			for ( ; i >= 0; --i)
+				free(arr[i]);
+			free(arr);
+			return (NULL);
+		}
 		start = j - cnt;
 		for (k = 0; start < j; k++, start++)
 			arr[i][k] = str[start];
