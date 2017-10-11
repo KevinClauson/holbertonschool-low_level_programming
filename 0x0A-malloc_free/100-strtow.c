@@ -40,7 +40,7 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0')
 		return (NULL);
 	words = word_count(str);
-	arr = (char **)malloc((words + 1) * sizeof(char *));
+	arr = malloc((words + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
 	for (j = 0, i = 0; i < words; ++i)
@@ -53,7 +53,7 @@ char **strtow(char *str)
 			else if (str[j] != ' ')
 				++cnt;
 		}
-		arr[i] = (char *) malloc(cnt * sizeof(char) + 1);
+		arr[i] = malloc(cnt * sizeof(char) + 1);
 		if (arr[i] == NULL)
 		{
 			for ( ; i >= 0; --i)
