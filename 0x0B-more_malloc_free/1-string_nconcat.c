@@ -5,9 +5,9 @@
  * @str: string.
  * Return: length.
  */
-int _strlen(char *str)
+unsigned int _strlen(char *str)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (str[i] != '\0')
