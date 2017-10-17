@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include "dog.h"
 /**
- * main - check the code for Holberton School students.
- *
+ * print_dog - prints a struct dog.
+ * @d: struct dog.
  * Return: Always 0.
  */
 void print_dog(struct dog *d)
@@ -14,10 +14,7 @@ void print_dog(struct dog *d)
 			printf("Name: %s\n", d->name);
 		else
 			printf("Name: (nil)\n");
-		if (d->age)
 			printf("Age: %f\n", d->age);
-		else
-			printf("Age: (nil)\n");
 		if (d->owner)
 			printf("Owner: %s\n", d->owner);
 		else
