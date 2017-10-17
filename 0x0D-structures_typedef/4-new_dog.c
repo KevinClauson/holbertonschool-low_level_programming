@@ -20,7 +20,7 @@ int _strlen(char *str)
  * @len: length of string to copy.
  * Return: nothing.
  */
-void str_cpy (char *str1, char *str2, unsigned int len)
+void str_cpy(char *str1, char *str2, unsigned int len)
 {
 	unsigned int i;
 
