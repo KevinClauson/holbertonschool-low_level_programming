@@ -12,20 +12,20 @@ int main(int argc, char *argv[])
 
 	if (argc < 4)
 	{
-		printf("Error\n");
+		printf("Error 1\n");
 		exit (98);
 	}
 	n1 = atoi(argv[1]);
 	n2 = atoi(argv[3]);
-	operator = argv[2];
+	op =argv[2];
 	if (get_op_func(op) == NULL)
 	{
-		printf("Error\n");
+		printf("Error 2\n");
 		exit (99);
 	}
 	if (n2 == 0 && (strcmp(op,"/") == 0 || strcmp(op, "%") == 0))
 	{
-		printf("Error\n");
+		printf("Error 3\n");
 		exit (100);
 	}
 	printf("%d\n", (get_op_func(op)(n1, n2)));
