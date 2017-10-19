@@ -32,7 +32,7 @@ int op_mul(int a, int b)
  * op_div - divides two input ints.
  * @a: 1st int.
  * @b: 2nd int.
- * Returns the result of dividing 2 ints.
+ * Return: the result of dividing 2 ints.
  */
 int op_div(int a, int b)
 {
