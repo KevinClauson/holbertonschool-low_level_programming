@@ -53,7 +53,7 @@ void print_all(const char * const format, ...)
 		case 's':              /* string */
 			s = va_arg(ap, char *);
 			if (s == NULL)
-				printf("nil");
+				printf("(nil)");
 			else
 				printf("%s", s);
 			++temp;
