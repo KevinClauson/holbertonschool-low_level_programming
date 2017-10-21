@@ -11,8 +11,21 @@ int num_args(const char * const s)
 	i = arg = 0;
 	while (s[i])
 	{
-		if (s[i] == 'i' || s[i] == 's' || s[i] == 'f' || s[i] == 'c')
+		switch (s[i])
+		{
+		case 'i':
 			++arg;
+			break;
+		case 's':
+			++arg;
+			break;
+		case 'f':
+			++arg;
+			break;
+		case 'c':
+			++arg;
+			break;
+		}
 		++i;
 	}
 	return (arg);
@@ -27,6 +40,7 @@ void print_all(const char * const format, ...)
 {
 	int flag, temp, i, arg_count;
 	va_list ap;
+	char *s;
 
 	va_start(ap, format);
 	i = temp = arg_count = 0;
@@ -34,10 +48,14 @@ void print_all(const char * const format, ...)
 	while (format && format[i] != '\0')
 	{
 		flag = 1;
-		switch (format[i])
+		switch (format[i++])
 		{
 		case 's':              /* string */
-			printf("%s", va_arg(ap, char *));
+			s = va_arg(ap, char *);
+			if (s == NULL)
+				printf("nil");
+			else
+				printf("%s", s);
 			++temp;
 			break;
 		case 'i':              /* int */
@@ -50,15 +68,13 @@ void print_all(const char * const format, ...)
 			break;
 		case 'f':
 			printf("%f", va_arg(ap, double));
-			++temp;
-			break;
+			++temp; break;
 		default:
 			flag = 0;
 			break;
 		}
 		if (flag == 1 && temp < arg_count)
 			printf(", ");
-		++i;
 	}
 	printf("\n");
 	va_end(ap);
