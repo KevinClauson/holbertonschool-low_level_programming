@@ -55,26 +55,21 @@ void print_all(const char * const format, ...)
 			if (s == NULL)
 			{
 				printf("(nil)");
-				++temp;
-				break;
+				++temp; break;
 			}
 			printf("%s", s);
-			++temp;
-			break;
+			++temp; break;
 		case 'i':              /* int */
 			printf("%d", va_arg(ap, int));
-			++temp;
-			break;
+			++temp; break;
 		case 'c':              /* char */
 			printf("%c", (char) va_arg(ap, int));
-			++temp;
-			break;
+			++temp; break;
 		case 'f':
 			printf("%f", va_arg(ap, double));
 			++temp; break;
 		default:
-			flag = 0;
-			break;
+			flag = 0; break;
 		}
 		if (flag == 1 && temp < arg_count)
 			printf(", ");
