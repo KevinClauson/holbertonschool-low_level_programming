@@ -9,7 +9,7 @@ int num_args(const char * const s)
 	int i, arg;
 
 	i = arg = 0;
-	whilev(s[i])
+	while (s[i])
 	{
 		if (s[i] == 'i' || s[i] == 's' || s[i] == 'f' || s[i] == 'c')
 			++arg;
@@ -25,9 +25,7 @@ int num_args(const char * const s)
  */
 void print_all(const char * const format, ...)
 {
-	int d, flag, temp, i, arg_count;
-	char c, *s;
-	float f;
+	int flag, temp, i, arg_count;
 	va_list ap;
 
 	va_start(ap, format);
@@ -51,7 +49,7 @@ void print_all(const char * const format, ...)
 			++temp;
 			break;
 		case 'f':
-			printf("%f", va_arg(ap, double);
+			printf("%f", va_arg(ap, double));
 			++temp;
 			break;
 		default:
