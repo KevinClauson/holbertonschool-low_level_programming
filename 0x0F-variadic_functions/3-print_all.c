@@ -4,6 +4,7 @@
  * @s: the string that tells you nuber of args and type.
  * Return: number of args to be printed.
  */
+/*
 int num_args(const char * const s)
 {
 	int i, arg;
@@ -30,6 +31,7 @@ int num_args(const char * const s)
 	}
 	return (arg);
 }
+*/
 /**
  * print_all - a function that prints anything.
  * @format: gives you the format of the elements to be printed as well as junk
@@ -44,7 +46,9 @@ void print_all(const char * const format, ...)
 
 	va_start(ap, format);
 	i = temp = arg_count = 0;
+/*
 	arg_count = num_args(format);
+*/
 	while (format && format[i] != '\0')
 	{
 		flag = 1;
@@ -71,7 +75,7 @@ void print_all(const char * const format, ...)
 		default:
 			flag = 0; break;
 		}
-		if (flag == 1 && temp < arg_count)
+		if (flag == 1 && format[i] != '\0')
 			printf(", ");
 	}
 	printf("\n");
