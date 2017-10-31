@@ -26,7 +26,6 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			if (temp2 == temp)
 			{
-				flag = 1;
 				printf("-> [%p] %d\n", (void *) temp2, temp2->n);
 				return (cnt);
 			}
