@@ -9,11 +9,11 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *temp, *temp2;
-	size_t cnt, i, flag;
+	size_t cnt, i;
 
-	flag = cnt = 0;
+	cnt = 0;
 	if (head == NULL)
-		exit(98);
+		return (cnt);
 	temp = head;
 	while (temp != NULL)
 	{
@@ -28,13 +28,11 @@ size_t print_listint_safe(const listint_t *head)
 			{
 				flag = 1;
 				printf("-> [%p] %d\n", (void *) temp2, temp2->n);
-				break;
+				return (cnt);
 			}
 			temp2 = temp2->next;
 			++i;
 		}
-		if (flag == 1)
-			break;
 	}
 	return (cnt);
 }
