@@ -6,8 +6,8 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *temp, *temp2;
-	size_t cnt;
+	listint_t *temp, *temp2, *temp3;
+	size_t cnt, i;
 
 	cnt = 0;
 	if (*h == NULL)
@@ -17,9 +17,20 @@ size_t free_listint_safe(listint_t **h)
 	{
 		temp2 = temp;
 		temp = temp->next;
-		temp2->next = NULL;
 		free(temp2);
 		++cnt;
+		i = 0;
+		temp3 = *h;
+		while (i < cnt)
+		{
+			if (temp == temp3)
+			{
+				*h = NULL;
+				return (cnt);
+			}
+			++i;
+			temp3 = temp3->next;
+		}
 	}
 	*h = temp;
 	return (cnt);
