@@ -19,7 +19,7 @@ unsigned int binary_to_uint(const char *b)
 	int len;
 
 	len = _strlen(b);
-	if (len < 1 || len > 32)
+	if (len > 64)
 		return (0);
 	num = 0;
 	for (i = 0; b[i] != '\0'; ++i)
