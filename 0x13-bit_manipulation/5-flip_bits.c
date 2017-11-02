@@ -13,17 +13,16 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int i, cnt;
 
 	cp = n ^ m;
-	cnt = i = 0;
-	while (i < 32)
+	cnt = 0;
+	while (cp)
 	{
 		temp = 0;
-		temp = cp & 0x80000000;
-		if (temp == 0x80000000)
+		temp = cp & 1;
+		if (temp == 1)
 		{
 			++cnt;
 		}
-		cp <<=1;
-		++i;
+		cp >>= 1;
 	}
 	return (cnt);
 }
