@@ -8,12 +8,11 @@ void print_binary(unsigned long int n)
 {
 	unsigned int i, temp, flag;
 
-	i = flag = 0;
 	if (n == 0)
 		_putchar('0');
 	else
 	{
-		while (i < 32)
+		while (n)
 		{
 			temp = 0;
 			temp = n & 0x80000000;
@@ -26,7 +25,6 @@ void print_binary(unsigned long int n)
 			}
 			if (temp == 0 && flag == 1)
 				_putchar('0');
-			++i;
 		}
 	}
 }
