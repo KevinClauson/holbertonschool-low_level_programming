@@ -18,11 +18,11 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	{
 		temp = 0;
 		temp = cp & 0x80000000;
-		cp <<= 1;
 		if (temp == 0x80000000)
 		{
 			++cnt;
 		}
+		cp <<=1;
 		++i;
 	}
 	return (cnt);
