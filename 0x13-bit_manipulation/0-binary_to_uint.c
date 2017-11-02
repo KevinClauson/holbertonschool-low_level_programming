@@ -1,4 +1,13 @@
 #include "holberton.h"
+int _strlen(const char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; ++i)
+		;
+	return (i);
+}
+
 /**
  * binary_to_uint - converts a binary number to an unsigned int.
  * @b: is a string.
@@ -7,7 +16,11 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int i, num;
+	int len;
 
+	len = _strlen(b);
+	if (len < 1 || len > 32)
+		return (0);
 	num = 0;
 	for (i = 0; b[i] != '\0'; ++i)
 	{
