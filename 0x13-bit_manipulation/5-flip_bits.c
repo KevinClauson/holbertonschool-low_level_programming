@@ -9,16 +9,16 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int temp;
+	unsigned long int temp, cp;
 	unsigned int i, cnt;
 
-	n ^= m;
+	cp = n ^ m;
 	cnt = i = 0;
 	while (i < 32)
 	{
 		temp = 0;
-		temp = n & 0x80000000;
-		n <<= 1;
+		temp = cp & 0x80000000;
+		cp <<= 1;
 		if (temp == 0x80000000)
 		{
 			++cnt;
