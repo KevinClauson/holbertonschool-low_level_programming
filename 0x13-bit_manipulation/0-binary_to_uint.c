@@ -12,7 +12,7 @@ unsigned int binary_to_uint(const char *b)
 	num = 0;
 	for (i = 0; b[i] != '\0'; ++i)
 	{
-		if (i > 128)
+		if (i > 9999999999)
 		{
 			return (0);
 		}
