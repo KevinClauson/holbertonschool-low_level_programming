@@ -9,6 +9,9 @@ int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int i, num, temp, temp2;
 
+	if (n == NULL || index > 32)
+		return (-1);
+
 	num = 1;
 	i = 0;
 	if (n == 0)
