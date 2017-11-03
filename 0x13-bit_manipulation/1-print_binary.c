@@ -6,7 +6,8 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int i, temp, flag;
+	unsigned long int temp;
+	int i, flag;
 
 	if (n == 0)
 		_putchar('0');
