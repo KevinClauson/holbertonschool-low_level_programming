@@ -24,7 +24,7 @@ void print_binary(unsigned long int n)
 				flag = 1;
 				_putchar('1');
 			}
-			if (temp == 0 && flag == 1)
+			else if (temp == 0 && flag == 1)
 				_putchar('0');
 			n <<= 1;
 			++i;
