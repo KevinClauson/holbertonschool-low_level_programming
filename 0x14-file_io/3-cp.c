@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 	char *f_fr, *f_to, buffer[BUFFSIZE];
 
 	if (argc != 3)
-		oops(97, NULL, 0);
+		exit(oops(97, NULL, 0));
 	f_fr = argv[1];
 	f_to = argv[2];
 	fd1 = open(f_fr, O_RDONLY);
