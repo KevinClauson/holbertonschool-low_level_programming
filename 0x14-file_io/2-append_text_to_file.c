@@ -25,7 +25,7 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (filename == NULL)
 		return (-1);
-	fopen = open(filename, O_WRONLY);
+	fopen = open(filename, O_WRONLY | O_APPEND);
 	if (fopen == -1)
 		return (-1);
 	if (text_content != NULL)
