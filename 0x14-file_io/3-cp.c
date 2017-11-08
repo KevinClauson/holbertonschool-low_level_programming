@@ -7,7 +7,7 @@
  */
 int main(int argc, char **argv)
 {
-	int fd1, fd2, fd_r, fd_w;
+	int fd1, fd2, fd_r, fd_w, fc;
 	char *f_fr, *f_to, buffer[BUFFSIZE];
 	if (argc != 3)
 	{
@@ -34,19 +34,41 @@ int main(int argc, char **argv)
 		if (fd_r == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_fr);
-			close(fd1);
-			close(fd2);
+			fc = close(fd1);
+			if (fc == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
+				exit(100);
+			}
+			fc = close(fd2);
+			if (fc == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+				exit(100);
+			}
 			exit(98);
 		}
 		fd_w = write(fd2, &buffer, fd_r);
 		if (fd_w == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
-			close(fd1);
-			close(fd2);
+			fc = close(fd1);
+			if (fc == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
+				exit(100);
+			}
+			fc = close(fd2);
+			if (fc == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+				exit(100);
+			}
 			exit(99);
 		}
 	} while (fd_r > 0);
 
+	close(fd1);
+	close(fd2);
 	return (0);
 }
