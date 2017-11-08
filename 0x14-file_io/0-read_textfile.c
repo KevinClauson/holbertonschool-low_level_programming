@@ -1,13 +1,27 @@
 #include "holberton.h"
 /**
- * read_textfile - reads a text file and prints it to the POSIX standard output.
+ * _strlen - get actual length of buf.
+ * @str: this is the strgin to check length
+ * Return: length.
+ */
+int _strlen(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; ++i)
+		;
+	return (i);
+}
+/**
+ * read_textfile - reads a text file and prints it to the POSIX
+ *  standard output.
  * @filename: name of the file.
  * @letters: the number of letters it should read and print
  * Return: returns the actual number of letters it could read and print or 0.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fopen, fread, fwrite;
+	int fopen, fread, fwrite, len;
 	char *buf;
 
 	fopen = open(filename, O_RDONLY);
@@ -24,7 +38,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(buf);
 		return (0);
 	}
-	fwrite = write(STDOUT_FILENO, buf, letters);
+	len = _strlen(buf);
+
+	fwrite = write(STDOUT_FILENO, buf, len);
 	if (fwrite == -1)
 	{
 		free(buf);
@@ -32,5 +48,5 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	free(buf);
 	close(fopen);
-	return (letters);
+	return (len);
 }
