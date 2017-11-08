@@ -67,8 +67,17 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	} while (fd_r > 0);
-
-	close(fd1);
-	close(fd2);
+	fc = close(fd1);
+	if (fc == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
+		exit(100);
+	}
+	fc = close(fd2);
+	if (fc == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+		exit(100);
+	}
 	return (0);
 }
