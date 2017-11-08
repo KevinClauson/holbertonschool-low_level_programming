@@ -1,5 +1,15 @@
 #include "holberton.h"
 #define BUFFSIZE 1024
+void oops(int n, char *str)
+{
+	if (n == 97)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	if (str != NULL)
+		dprintf(STDERR_FILENO, "Usage %s\n", str);
+}
 /**
  * main - program that copies the content of a file to another file.
  *
@@ -11,8 +21,7 @@ int main(int argc, char **argv)
 	char *f_fr, *f_to, buffer[BUFFSIZE];
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
+		oops(97, NULL);
 	}
 	f_fr = argv[1];
 	f_to = argv[2];
