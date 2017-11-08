@@ -7,8 +7,11 @@ void oops(int n, char *str)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	if (str != NULL)
-		dprintf(STDERR_FILENO, "Usage %s\n", str);
+	if (n == 98)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", str);
+		exit(98);
+	}
 }
 /**
  * main - program that copies the content of a file to another file.
@@ -20,17 +23,12 @@ int main(int argc, char **argv)
 	int fd1, fd2, fd_r, fd_w, fc;
 	char *f_fr, *f_to, buffer[BUFFSIZE];
 	if (argc != 3)
-	{
 		oops(97, NULL);
-	}
 	f_fr = argv[1];
 	f_to = argv[2];
 	fd1 = open(f_fr, O_RDONLY);
 	if (fd1 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_fr);
-		exit(98);
-	}
+		oops(98, f_fr);
 	fd2 = open(f_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 == -1)
 	{
