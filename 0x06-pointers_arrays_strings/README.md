@@ -1,7 +1,11 @@
-This README.md is currently under construction
+# 0x06-pointers_arrays_strings
 
-If there are no comments on the various files below
-please look at the top of each function in the files for comments
-about that file and function.
-
-Thanks you. 
+0-memset.c - fill memory with a constant byte\
+1-memcpy.c - copy memory area\
+2-strchr.c - locate character in string\
+3-strspn.c - get length of prefix substring\
+4-strpbrk.c - locate any of a set of bytes in string\
+5-strstr.c - find a needle in a haystack, aka locate substring\
+7-print_chessboard.c - print given chessboard\
+8-print_diagsums.c - print sum of each diagonal of square matrix\
+9-set_string.c - sets value of pointer to char\
