@@ -1,10 +1,9 @@
-# 0x0C-preprocessor
+# 0x0D-structures_typedef
 
-## Introduction to Macros
+## Introduction to structures
 
-0-object_like_macro.h - header file defines macro SIZE with token 1024  
-1-pi.h - header file defines macro PI with token 3.14159265359  
-2-main.c - program prints name of file it was compiled from followed by a new line  
-3-function_like_macro.h - header file defines macro ABS(x) that computes absolute value of x  
-4-sum.h - header file defines SUM(x, y) that computes the sum of x + y  
-101-preprocessor_abuse.c - program that can print "Hello, Holberton" followed by a new line 
+dog.h - header file that defines new types struct dog, dog_t  
+1-init_dog.c - function to initialize a variable of type dog  
+2-print_dog.c - prints a struct dog  
+4-new_dog.c - function to create a new dog  
+5-free_dog.c - function to free dogs
