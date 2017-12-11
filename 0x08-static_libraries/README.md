@@ -1,6 +1,7 @@
-/********************************************************
- * THIS README is currently under construction
- * if there is nothing below, please check the individual
- * files for documentation, as each function will be
- * commented.
- * Thank you for your patience.
+# 0x08-static_libraries
+
+## Introduction to static libraries
+
+libholberton.a - holberton static library for created functions  
+holberton.h - holberton header file for created functions  
+create_static_lib.sh - bash script that creates static library
