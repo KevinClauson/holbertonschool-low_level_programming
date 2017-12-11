@@ -1,5 +1,10 @@
 #include "lists.h"
-
+/**
+ * add_dnodeint_end - add a node to the end of linked list.
+ * @head: pointer to head of linked list.
+ * @n: data for the added node.
+ * Return: address to new node.
+ */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
 	dlistint_t *new, *current;
@@ -13,7 +18,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	if (current == NULL)
 	{
 		*head = new;
-		return(*head);
+		return (*head);
 	}
 	while (current->next)
 	{
