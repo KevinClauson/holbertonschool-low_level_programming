@@ -1,11 +1,11 @@
 #ifndef __SORT__H
 #define __SORT__H
 
-/*************************** Libraries *******************************************/
+/*************************** Libraries ***********************/
 #include <stdio.h>
 
 
-/**************************** Structs *********************************************/
+/**************************** Structs ************************/
 
 /**
  * struct listint_s - Doubly linked list node
@@ -16,13 +16,13 @@
  */
 typedef struct listint_s
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
 
 
-/*************************** Functions *********************************************/
+/*************************** Functions **********************/
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
