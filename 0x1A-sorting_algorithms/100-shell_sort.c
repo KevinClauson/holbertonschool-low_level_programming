@@ -12,7 +12,7 @@
 void shell_sort(int *array, size_t size)
 {
 	size_t i, j, num, len;
-	int temp;
+	int t;
 
 	if (array && size > 1)
 	{
@@ -27,13 +27,13 @@ void shell_sort(int *array, size_t size)
 		{
 			for (i = len; i < size; i += 1)
 			{
-				temp = array[i];
+				t = array[i];
 
-				for (j = i; j >= len && array[j - len] > temp; j -= len)
+				for (j = i; j >= len && array[j - len] > t; j -= len)
 				{
 					array[j] = array[j - len];
 				}
-				array[j] = temp;
+				array[j] = t;
 			}
 			print_array(array, size);
 			len /= 3;
