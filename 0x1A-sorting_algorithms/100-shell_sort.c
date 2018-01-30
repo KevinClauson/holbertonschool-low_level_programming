@@ -21,7 +21,7 @@ void shell_sort(int *array, size_t size)
 			num = size / 3;
 		else
 			num = (size / 3) + 1;
-		while (len < num)
+		while ((len * 3 + 1) <= num)
 			len *= (len * 3) + 1;
 		while (len >= 1)
 		{
