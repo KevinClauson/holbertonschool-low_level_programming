@@ -36,7 +36,7 @@ void shell_sort(int *array, size_t size)
 				array[j] = t;
 			}
 			print_array(array, size);
-			len /= 3;
+			len = (len - 1) / 3;
 		}
 	}
 }
