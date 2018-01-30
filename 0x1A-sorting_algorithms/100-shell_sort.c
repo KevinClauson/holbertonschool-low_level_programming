@@ -11,28 +11,28 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t i, j, len;
+	size_t i, j, gap;
 	int t;
 
 	if (array && size > 1)
 	{
-		len = 1;
-		while ((len * 3 + 1) < size)
-			len *= (len * 3) + 1;
-		while (len >= 1)
+		gap = 1;
+		while (gap * 3 + 1 < size)
+			gap *= (gap * 3) + 1;
+		while (gap >= 1)
 		{
-			for (i = len; i < size; i += 1)
+			for (i = gap; i < size; i += 1)
 			{
 				t = array[i];
 
-				for (j = i; j >= len && array[j - len] > t; j -= len)
+				for (j = i; j >= gap && array[j - gap] > t; j -= gap)
 				{
-					array[j] = array[j - len];
+					array[j] = array[j - gap];
 				}
 				array[j] = t;
 			}
 			print_array(array, size);
-			len = (len - 1) / 3;
+			gap = (gap - 1) / 3;
 		}
 	}
 }
