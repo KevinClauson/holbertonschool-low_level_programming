@@ -11,17 +11,13 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t i, j, num, len;
+	size_t i, j, len;
 	int t;
 
 	if (array && size > 1)
 	{
 		len = 1;
-		if (size % 3 == 0)
-			num = size / 3;
-		else
-			num = (size / 3) + 1;
-		while ((len * 3 + 1) <= num)
+		while ((len * 3 + 1) < size)
 			len *= (len * 3) + 1;
 		while (len >= 1)
 		{
