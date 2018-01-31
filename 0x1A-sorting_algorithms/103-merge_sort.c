@@ -27,11 +27,18 @@ void TopDownMerge(int A[], size_t iBegin, size_t iMiddle, size_t iEnd, int B[])
 		}
 		else
 		{
-			/*printf("Right: %d\n", A[j]);*/
 			B[k] = A[j];
 			j = j + 1;
 		}
 	}
+	printf("[left]: %d", A[iBegin]);
+	for (i = iBegin + 1; i < iMiddle; ++i)
+		printf(", %d", A[i]);
+	printf("\n");
+	printf("[right]: %d", A[iMiddle]);
+	for (i = iMiddle + 1; i < iEnd; ++i)
+		printf(", %d", A[i]);
+	printf("\n");
 }
 
 /**
@@ -53,14 +60,6 @@ void TopDownSplitMerge(int B[], size_t iBegin, size_t iEnd, int A[])
 	TopDownSplitMerge(A, iBegin, iMiddle, B);
 	TopDownSplitMerge(A, iMiddle, iEnd, B);
 	printf("Merging...\n");
-	printf("[left]: %d", A[iBegin]);
-	for (i = iBegin + 1; i < iMiddle; ++i)
-		printf(", %d", A[i]);
-	printf("\n");
-	printf("[right]: %d", A[iMiddle]);
-	for (i = iMiddle + 1; i < iEnd; ++i)
-		printf(", %d", A[i]);
-	printf("\n");
 	TopDownMerge(B, iBegin, iMiddle, iEnd, A);
 	printf("[Done]: %d", A[iBegin]);
 	for (i = iBegin + 1; i < iEnd; ++i)
