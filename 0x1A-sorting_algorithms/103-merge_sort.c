@@ -2,20 +2,26 @@
 #include <stdlib.h>
 #include "sort.h"
 
+
+/**
+ * TopDownMerge - merge sort
+ * @A: array
+ * @iBegin: starting index
+ * @iMiddle: middle index
+ * @iEnd: end of index
+ * @B: array
+ *
+ * Return: nothing
+ */
 void TopDownMerge(int A[], size_t iBegin, size_t iMiddle, size_t iEnd, int B[])
 {
 	size_t i, j, k;
 
 	i = iBegin, j = iMiddle;
-/*
-	for (i = iBegin; i < iEnd; ++i)
-		printf("%d ", A[i]);
-*/
 	for (k = iBegin; k < iEnd; k++)
 	{
 		if (i < iMiddle && (j >= iEnd || A[i] <= A[j]))
 		{
-			/*printf("LEFT: %d\n", A[i]);*/
 			B[k] = A[i];
 			i = i + 1;
 		}
@@ -28,15 +34,24 @@ void TopDownMerge(int A[], size_t iBegin, size_t iMiddle, size_t iEnd, int B[])
 	}
 }
 
+/**
+ * TopDownSplitMerge - Entry point
+ * @B: array
+ * @iBegin: starting index
+ * @iEnd: ending index
+ * @A: array
+ *
+ * Return: nothing
+ */
 void TopDownSplitMerge(int B[], size_t iBegin, size_t iEnd, int A[])
 {
 	size_t iMiddle, i;
 
-	if(iEnd - iBegin < 2)
+	if (iEnd - iBegin < 2)
 		return;
 	iMiddle = (iEnd + iBegin) / 2;
-	TopDownSplitMerge(A, iBegin,  iMiddle, B);
-	TopDownSplitMerge(A, iMiddle,    iEnd, B);
+	TopDownSplitMerge(A, iBegin, iMiddle, B);
+	TopDownSplitMerge(A, iMiddle, iEnd, B);
 	printf("Merging...\n");
 	printf("[left]: %d", A[iBegin]);
 	for (i = iBegin + 1; i < iMiddle; ++i)
@@ -66,7 +81,8 @@ void TopDownSplitMerge(int B[], size_t iBegin, size_t iEnd, int A[])
 void copy_array(int A[], size_t iBegin, size_t iEnd, int B[])
 {
 	size_t k;
-	for(k = iBegin; k < iEnd; k++)
+
+	for (k = iBegin; k < iEnd; k++)
 		B[k] = A[k];
 }
 
@@ -83,8 +99,6 @@ void top_down_merge_sort(int A[], int B[], size_t n)
 	copy_array(A, 0, n, B);
 	TopDownSplitMerge(B, 0, n, A);
 }
-
-
 
 /**
  * merge_sort - implement merge sort
