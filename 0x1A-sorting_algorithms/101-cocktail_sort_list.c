@@ -1,12 +1,11 @@
 #include "sort.h"
 
 /**
- * create_listint - Creates a doubly linked list from an array of integers
+ * cocktail_sort_list - sort a doubly linked list
  *
- * @array: Array to convert to a doubly linked list
- * @size: Size of the array
+ * @list: doubly linked list
  *
- * Return: Pointer to the first element of the created list. NULL on failure
+ * Return: nothing
  */
 void cocktail_sort_list(listint_t **list)
 {
