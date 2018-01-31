@@ -25,13 +25,13 @@ void counting_sort(int *array, size_t size)
 		count = calloc((max + 1), sizeof(int));
 		for (i = 0; i < size; ++i)
 			count[array[i]] += 1;
-		for(j = 0, total = 0, oldCount = 0; j < max + 1; ++j)
+		for (j = 0, total = 0, oldCount = 0; j < max + 1; ++j)
 		{
 			oldCount = count[j];
 			total += oldCount;
 			count[j] = total;
 		}
-		print_array(count, max+1);
+		print_array(count, max + 1);
 		for (i = 0; i < size; ++i)
 		{
 			output[count[array[i]] - 1] = array[i];
