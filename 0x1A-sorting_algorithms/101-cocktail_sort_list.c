@@ -86,8 +86,6 @@ void cocktail_sort_list(listint_t **list)
 		{
 			flag = 0;
 			sort_f(list, &flag, c);
-			if (flag == 0)
-				break;
 			sort_r(list, &flag, c);
 		}
 	}
