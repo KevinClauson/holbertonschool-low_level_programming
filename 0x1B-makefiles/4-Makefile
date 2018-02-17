@@ -1,0 +1,28 @@
+# Makefile
+CC=gcc
+SRC=holberton.c main.c
+NAME=holberton
+OBJ=$(SRC:.c=.o)
+RM=rm -f
+CFLAGS=-Wall -Werror -Wextra -pedantic
+
+all: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+clean:
+ifneq ("$(wildcard *~)","")
+	$(RM) *~
+endif
+
+ifneq ("$(wildcard $(NAME))","")
+	$(RM) $(NAME)
+endif
+
+oclean:
+ifneq ("$(wildcard $(OBJ))","")
+	$(RM) $(OBJ)
+endif
+
+fclean: clean oclean
+
+rm: fclean all
