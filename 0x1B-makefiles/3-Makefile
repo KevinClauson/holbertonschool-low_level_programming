@@ -1,3 +1,4 @@
+# Makefile
 CC=gcc
 SRC=holberton.c main.c
 NAME=holberton
@@ -8,10 +9,18 @@ all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
+ifneq ("$(whildcard *~)","")
 	$(RM) *~ $(NAME)
+endif
+
+ifneq ("$(wildcard $(NAME))","")
+	$(RM) $(NAME)
+endif
 
 oclean:
+ifneq ("$(wildcard $(OBJ))","")
 	$(RM) $(OBJ)
+endif
 
 fclean: clean oclean
 
