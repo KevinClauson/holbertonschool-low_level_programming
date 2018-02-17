@@ -10,7 +10,7 @@ def island_perimeter(grid):
     """
     perm = 0
     if not grid:
-        return 0
+        return None
     for i, line in enumerate(grid):
         for j, value in enumerate(line):
             if grid[i][j] == 1:
