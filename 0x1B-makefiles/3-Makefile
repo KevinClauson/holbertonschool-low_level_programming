@@ -9,8 +9,8 @@ all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-ifneq ("$(whildcard *~)","")
-	$(RM) *~ $(NAME)
+ifneq ("$(wildcard *~)","")
+	$(RM) *~
 endif
 
 ifneq ("$(wildcard $(NAME))","")
@@ -24,4 +24,4 @@ endif
 
 fclean: clean oclean
 
-rm: fclean all
+rm: oclean all
