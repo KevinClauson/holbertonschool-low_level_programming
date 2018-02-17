@@ -24,4 +24,4 @@ endif
 
 fclean: clean oclean
 
-rm: oclean all
+rm: fclean all
