@@ -1,19 +1,17 @@
 # -*- MakeFile -*-
-CC=gcc
-SRC=main.c holberton.c
-NAME=holberton
-OBJ=$(SRC:.c=.o)
-RM=rm -f
+CC = gcc
+SRC = main.c holberton.c
+NAME = holberton
+OBJ = $(SRC:.c=.o)
+RM = rm -f
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
 	$(RM) *~ $(NAME)
-
 oclean:
 	$(RM) $(OBJ)
-
 fclean: clean oclean
 
-rm: fclean all
+rm: oclean all
