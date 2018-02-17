@@ -1,4 +1,4 @@
-# Makefile
+# -*- MakeFile -*-
 CC=gcc
 SRC=holberton.c main.c
 NAME=holberton
