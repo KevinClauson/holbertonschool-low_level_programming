@@ -1,6 +1,6 @@
 # -*- MakeFile -*-
 CC=gcc
-SRC=holberton.c main.c
+SRC=main.c holberton.c
 NAME=holberton
 OBJ=$(SRC:.c=.o)
 RM=rm -f
@@ -10,18 +10,10 @@ all: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-ifneq ("$(wildcard *~)","")
-	$(RM) *~
-endif
-
-ifneq ("$(wildcard $(NAME))","")
-	$(RM) $(NAME)
-endif
+	$(RM) *~ $(NAME)
 
 oclean:
-ifneq ("$(wildcard $(OBJ))","")
 	$(RM) $(OBJ)
-endif
 
 fclean: clean oclean
 
