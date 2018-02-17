@@ -9,6 +9,8 @@ def island_perimeter(grid):
     function that finds perimiter
     """
     perm = 0
+    if not grid:
+        return 0
     for i, line in enumerate(grid):
         for j, value in enumerate(line):
             if grid[i][j] == 1:
