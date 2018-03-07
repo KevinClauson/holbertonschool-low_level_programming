@@ -1,12 +1,13 @@
 #include "binary_trees.h"
 
 /**
- * binary_trees_qncestor - finds common ancestor of 2 nodes
- * @firsst: is a pointer to a node
+ * binary_trees_ancestor - finds common ancestor of 2 nodes
+ * @first: is a pointer to a node
  * @second: is a pointer to a node
  * Return: ancestor or Null if none
  */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+				     const binary_tree_t *second)
 {
 	const binary_tree_t *temp;
 
