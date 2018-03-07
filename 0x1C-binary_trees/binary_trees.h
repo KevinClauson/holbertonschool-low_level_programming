@@ -59,4 +59,16 @@ size_t binary_tree_height(const binary_tree_t *tree);
 size_t binary_tree_depth(const binary_tree_t *node);
 /* measures the size of a binary tree */
 size_t binary_tree_size(const binary_tree_t *tree);
+/* counts the leaves in a binary tree */
+size_t binary_tree_leaves(const binary_tree_t *tree);
+/* counts the nodes with at least 1 child in a binary tree */
+size_t binary_tree_nodes(const binary_tree_t *tree);
+/* measures the balance factor of a binary tree */
+int binary_tree_balance(const binary_tree_t *tree);
+/* checks if a binary tree is full  */
+int binary_tree_is_full(const binary_tree_t *tree);
+/* checks if a binary tree is perfect */
+int binary_tree_is_perfect(const binary_tree_t *tree);
+/* finds sibling of a node */
+binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 #endif
