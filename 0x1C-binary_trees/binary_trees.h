@@ -71,4 +71,6 @@ int binary_tree_is_full(const binary_tree_t *tree);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 /* finds sibling of a node */
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
+/* find uncle of node */
+binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 #endif
