@@ -2,9 +2,10 @@
 
 /**
  * rec_perfect - recursive check
+ * @tree: pointer to root of tree
  * @depth: the depth of the tree
  * @level: the level of tree
- * return: 1 if perfect 0 if not
+ * Return: 1 if perfect 0 if not
  */
 int rec_perfect(const binary_tree_t *tree, int depth, int level)
 {
@@ -14,8 +15,8 @@ int rec_perfect(const binary_tree_t *tree, int depth, int level)
 		return (depth == level + 1);
 	if (tree->left == NULL || tree->right == NULL)
 		return (0);
-	return rec_perfect(tree->left, depth, level + 1) &&
-		rec_perfect(tree->right, depth, level + 1);
+	return (rec_perfect(tree->left, depth, level + 1) &&
+		rec_perfect(tree->right, depth, level + 1));
 }
 
 /**

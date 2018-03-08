@@ -19,6 +19,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
  * @tree: is pointer to root of tree
  * @level: is the level to print
  * @func: is func to be applied to the data element in node
+ * @depth: is the depth of the node
  * Return: nothing
  */
 void rec_levelorder(const binary_tree_t *tree, void (*func)(int), size_t level,
