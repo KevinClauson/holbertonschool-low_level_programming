@@ -83,4 +83,6 @@ int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 /* right-rotation on a binary tree */
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
+/* checks if a binary tree is a valid Binary Search Tree */
+int binary_tree_is_bst(const binary_tree_t *tree);
 #endif
