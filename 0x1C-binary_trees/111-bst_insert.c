@@ -15,7 +15,7 @@ bst_t *rec_insert(bst_t *tree, int value)
 		if (tree->right == NULL)
 		{
 			tree->right = binary_tree_node(tree, value);
-			return(tree->right);
+			return (tree->right);
 		}
 		return (rec_insert(tree->right, value));
 	}
@@ -33,6 +33,7 @@ bst_t *rec_insert(bst_t *tree, int value)
 /**
  * bst_insert - inserts value in a binary search tree
  * @tree: pointer to the root node of the tree to insert
+ * @value: value of pointer to be inserted
  * Return: pointer to the created node or null if duplicate value
  */
 bst_t *bst_insert(bst_t **tree, int value)
@@ -44,5 +45,5 @@ bst_t *bst_insert(bst_t **tree, int value)
 		*tree = binary_tree_node(*tree, value);
 		return (*tree);
 	}
-	return rec_insert(*tree, value);
+	return (rec_insert(*tree, value));
 }
