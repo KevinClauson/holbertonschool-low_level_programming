@@ -4,13 +4,15 @@
 /**
  * rec_t - checks if tree is a binary search tree
  * @tree: pointer to the root node of the tree to traverse
+ * @min: min value
+ * @max: max value
  * Return: 1 if binary search tree and 0 if not
  */
 int rec_t(const binary_tree_t *tree, int min, int max)
 {
 	if (tree == NULL)
 		return (1);
-        if (tree->n <= min || tree->n >= max)
+	if (tree->n <= min || tree->n >= max)
 		return (0);
 
 	return (rec_t(tree->left, min, tree->n)
