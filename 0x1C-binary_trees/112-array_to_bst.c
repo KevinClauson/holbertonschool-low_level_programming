@@ -1,10 +1,10 @@
 #include "binary_trees.h"
 
 /**
- * bst_insert - inserts value in a binary search tree
- * @tree: pointer to the root node of the tree to insert
- * @value: value of pointer to be inserted
- * Return: pointer to the created node or null if duplicate value
+ * array_to_bst - create a binary search tree from array of ints
+ * @array: an array of ints
+ * @size: size of array
+ * Return: pointer to the root of tree
  */
 bst_t *array_to_bst(int *array, size_t size)
 {
