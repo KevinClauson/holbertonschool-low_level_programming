@@ -38,44 +38,80 @@ bst_t *_bst_replace(bst_t *tree)
  * @r_node: node to be replaced
  * Return: nothing
  */
-bst_t *swap(bst_t *del_node, bst_t *r_node)
+bst_t *swap_root(bst_t *del_node, bst_t *r_node)
 {
-	bst_t *rep_parent, *del_parent;
-
-	del_parent = del_node->parent;
-	rep_parent = r_node->parent;
-	if (del_parent)
-	{
-		if (del_parent->left == del_node)
-			del_parent->left = r_node;
-		else
-			del_parent->right = r_node;
-		r_node->parent = del_parent;
-	}
-	else
-	{
-		r_node->parent = NULL;
-	}
-	if (r_node->right)
-	{
-		r_node->right->parent = rep_parent;
-		rep_parent->left = r_node->right;
-	}
-	else
-		rep_parent->left = NULL;
-	if (del_node->right != r_node)
-	{
-		r_node->right = del_node->right;
-		if (del_node->right)
-			del_node->right->parent = r_node;
-	}
-	else
-		r_node->right = NULL;
+	printf("HEELO root\n");
 	r_node->left = del_node->left;
 	if (del_node->left)
 		del_node->left->parent = r_node;
+	printf("1\n");
+	if (del_node->right == r_node)
+	{
+		r_node->parent = NULL;
+		free(del_node);
+		return (r_node);
+	}
+	printf("2\n");
+	if (r_node->right)
+		r_node->right->parent = r_node->parent;
+	r_node->parent->left = r_node->right;
+	r_node->right = del_node->right;
+	del_node->right->parent = r_node;
 	free(del_node);
+	r_node->parent = NULL;
 	return (r_node);
+}
+
+void swap_reg(bst_t *del_node, bst_t *r_node)
+{
+	bst_t *parent_of_del, *parent_of_rep;
+
+	parent_of_del = del_node->parent;
+	parent_of_rep = r_node->parent;
+	printf("reg\n");
+	if (del_node->right == r_node)
+	{
+		r_node->left = del_node->left;
+		if (del_node->left)
+			del_node->left->parent = r_node;
+		r_node->parent = del_node->parent;
+		if (del_node->parent->left == del_node)
+			del_node->parent->left = r_node;
+		else
+			del_node->parent->right = r_node;
+		free(del_node);
+		return;
+	}
+	if (r_node->right)
+	{
+		r_node->right->parent = parent_of_rep;
+		parent_of_rep->left = r_node->right;
+	}
+	else
+		parent_of_rep->left = NULL;
+	printf("HHHH\n");
+	r_node->left = del_node->left;
+	if (del_node->left)
+		del_node->left->parent = r_node;
+	printf("del node left: %d\n", del_node->left->n);
+	r_node->right = del_node->right;
+	del_node->right->parent = r_node;
+	r_node->parent = parent_of_del;
+	printf("NNNNN\n");
+	if (parent_of_del->left == del_node)
+		parent_of_del->left = r_node;
+	else
+		parent_of_del->right = r_node;
+
+	printf("replace node: %d\n", r_node->n);
+	printf("node to left: %d\n", r_node->left->n);
+	printf("node t0 right: %d\n", r_node->right->n);
+	printf("parent node: %d\n", r_node->parent->n);
+	printf("test parent conection: %d\n", r_node->parent->left->n);
+	printf("test child conection: %d\n", r_node->left->parent->n);
+	printf("test childe conneciton: %d\n", r_node->right->parent->n);
+
+	free(del_node);
 }
 
 
@@ -117,9 +153,9 @@ bst_t *bst_remove(bst_t *root, int value)
 			return (root);
 		}
 	}
-	temp =  swap(node_d, node_r);
-	if (temp->parent)
-		return (root);
-	else
-		return (temp);
+	printf("JJJJ\n");
+	if (node_d->parent == NULL)
+		return swap_root(node_d, node_r);
+	swap_reg(node_d, node_r);
+	return (root);
 }
