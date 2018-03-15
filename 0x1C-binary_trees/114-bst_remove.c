@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * bst_search - search a binary search tree for a value
+ * _bst_search - search a binary search tree for a value
  * @tree: root to tree
  * @value: value to search for
  * Return: pointer to the node containing the value or NULL
@@ -18,7 +18,7 @@ bst_t *_bst_search(bst_t *tree, int value)
 }
 
 /**
- * bst_replace - finde the replace value
+ * _bst_replace - finde the replace value
  * @tree: root to tree
  * Return: pointer to the node containing the value or NULL
  */
@@ -33,10 +33,10 @@ bst_t *_bst_replace(bst_t *tree)
 
 
 /**
- * change_parent - changes_parent of deleted node to the replace node
+ * swap_root - changes_parent of deleted node to the replace node
  * @del_node: node to be deleted
  * @r_node: node to be replaced
- * Return: nothing
+ * Return: r_node
  */
 bst_t *swap_root(bst_t *del_node, bst_t *r_node)
 {
@@ -59,6 +59,12 @@ bst_t *swap_root(bst_t *del_node, bst_t *r_node)
 	return (r_node);
 }
 
+/**
+ * swap_reg - changes_parent of deleted node to the replace node
+ * @del_node: node to be deleted
+ * @r_node: node to be replaced
+ * Return: nothing
+ */
 void swap_reg(bst_t *del_node, bst_t *r_node)
 {
 	bst_t *parent_of_del, *parent_of_rep;
@@ -101,7 +107,7 @@ void swap_reg(bst_t *del_node, bst_t *r_node)
 
 /**
  * bst_remove - search a binary search tree for a value and remove it
- * @tree: root to tree
+ * @root: root to tree
  * @value: value to search for
  * Return: pointer to the node that takes its place or NULL
  */
@@ -138,7 +144,7 @@ bst_t *bst_remove(bst_t *root, int value)
 		}
 	}
 	if (node_d->parent == NULL)
-		return swap_root(node_d, node_r);
+		return (swap_root(node_d, node_r));
 	swap_reg(node_d, node_r);
 	return (root);
 }
