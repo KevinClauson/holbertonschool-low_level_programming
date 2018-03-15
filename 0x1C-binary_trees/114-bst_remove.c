@@ -101,9 +101,7 @@ bst_t *bst_remove(bst_t *root, int value)
 			if (temp)
 				temp->parent = NULL;
 			free(node_d);
-			if (root == node_d)
-				return (temp);
-			return (root);
+			return (temp);
 		}
 		else
 		{
@@ -114,8 +112,6 @@ bst_t *bst_remove(bst_t *root, int value)
 			if (temp)
 				temp->parent = node_d->parent;
 			free(node_d);
-			if (root == node_d)
-				return (temp);
 			return (root);
 		}
 	}
