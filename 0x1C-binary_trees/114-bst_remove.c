@@ -69,6 +69,8 @@ bst_t *swap(bst_t *del_node, bst_t *r_node)
 		if (del_node->right)
 			del_node->right->parent = r_node;
 	}
+	else
+		r_node->right = NULL;
 	r_node->left = del_node->left;
 	if (del_node->left)
 		del_node->left->parent = r_node;
