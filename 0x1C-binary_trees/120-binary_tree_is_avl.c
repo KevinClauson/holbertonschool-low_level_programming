@@ -43,21 +43,6 @@ int rec_t(const binary_tree_t *tree, int min, int max, int depth, int d_max)
 }
 
 /**
- * binary_tree_check - checks if tree is a binary search tree
- * @tree: pointer to the root node of the tree to check
- * @max_height: max height of tree
- * Return: 1 if binary search tree and 0 if not
- */
-int binary_tree_check(const binary_tree_t *tree, int max_height)
-{
-	if (tree == NULL)
-		return (0);
-	if (rec_t(tree, INT_MIN, INT_MAX, 0, max_height))
-		return (1);
-	return (0);
-}
-
-/**
  * binary_tree_is_avl - checks if tree is a AVL tree
  * @tree: pointer to the root node of the tree to check
  * Return: 1 if AVL tree and 0 if not
@@ -66,8 +51,10 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 {
 	int check_bst, height;
 
+	if (tree == NULL)
+		return (0);
 	height = binary_tree_height(tree);
-	check_bst = binary_tree_check(tree, height);
+	check_bst = rec_t(tree, INT_MIN, INT_MAX, 0, height);
 	if (check_bst == 0)
 		return (0);
 	else
