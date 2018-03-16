@@ -49,14 +49,10 @@ int rec_t(const binary_tree_t *tree, int min, int max, int depth, int d_max)
  */
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
-	int check_bst, height;
+	int height;
 
 	if (tree == NULL)
 		return (0);
 	height = binary_tree_height(tree);
-	check_bst = rec_t(tree, INT_MIN, INT_MAX, 0, height);
-	if (check_bst == 0)
-		return (0);
-	else
-		return (1);
+	return (rec_t(tree, INT_MIN, INT_MAX, 0, height));
 }
