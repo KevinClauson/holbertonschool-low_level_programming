@@ -9,6 +9,8 @@ int binary_search(int *array, size_t size, int value)
 {
   size_t start, end, mid, i;
   
+  if (array == NULL)
+    return (-1);
   start = 0;
   end = size - 1;
   mid = (start + end) / 2;
